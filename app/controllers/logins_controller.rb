@@ -1,4 +1,6 @@
 class LoginsController < ApplicationController
+  # to allow user access to the login pages without being logged in!
+  skip_before_action :require_user, only: [:new, :create]
 
   def new
 
