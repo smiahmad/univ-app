@@ -13,6 +13,7 @@ before_action  :set_student, only:[:show, :edit, :update]
   end
 
   def create
+    #byebug
     @student = Student.new(student_params)
     if @student.save
       flash[:notice] = "You have successfully signed up!"
@@ -43,7 +44,7 @@ before_action  :set_student, only:[:show, :edit, :update]
   end
 
   def student_params
-    params.require(:student).permit(:name, :email)
+    params.require(:student).permit(:name, :email, :password, :password_confirmation)
   end
 
 end
